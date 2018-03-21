@@ -16,6 +16,15 @@ export function getPosts(req, res) {
     }
     res.json({ posts });
   });
+};
+
+export function editPost(req, res) {
+  Post.update({ cuid: req.params.cuid }, req.body.post).exec((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ post });
+  });
 }
 
 /**
