@@ -47,6 +47,7 @@ export function addPost(req, res) {
 
   newPost.slug = slug(newPost.title.toLowerCase(), { lowercase: true });
   newPost.cuid = cuid();
+  newPost.votes = 0;
   newPost.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
@@ -86,4 +87,21 @@ export function deletePost(req, res) {
       res.status(200).end();
     });
   });
+}
+
+function thumbPost(req, res, count) {
+  Post.findOneAndUpdate({ cuid: req.params.cuid }, {$inc: { votes: count}}).exec((eer, post) => {
+    if (err) {
+      res.status(500).sender(err);
+    }
+    res.json({ post });
+  });
+}
+
+export function thumbUpPost(req, res) {
+  thumbPost(req, res, +1);
+}
+
+export function thumbDownPost(req, res) {
+  thumbPost(req, res -1);
 }

@@ -5,6 +5,7 @@ export default {
     addPost: 'Ajouter Poster',
     switchLanguage: 'Changer de langue',
     twitterMessage: 'Nous sommes sur Twitter',
+    votes: 'Voter',
     by: 'Par',
     deletePost: 'Supprimer le message',
     createNewPost: 'Créer un nouveau message',

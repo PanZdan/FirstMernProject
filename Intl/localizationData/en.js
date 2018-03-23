@@ -6,6 +6,7 @@ export default {
     editPost: 'Edit Post',
     switchLanguage: 'Switch Language',
     twitterMessage: 'We are on Twitter',
+    votes: 'Votes',
     by: 'By',
     deletePost: 'Delete Post',
     createNewPost: 'Create new post',
