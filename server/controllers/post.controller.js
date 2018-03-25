@@ -1,7 +1,7 @@
-import Post from '../models/post';
-import cuid from 'cuid';
-import slug from 'limax';
-import sanitizeHtml from 'sanitize-html';
+import Post from "../models/post";
+import cuid from "cuid";
+import slug from "limax";
+import sanitizeHtml from "sanitize-html";
 
 /**
  * Get all posts
@@ -10,13 +10,15 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getPosts(req, res) {
-  Post.find().sort('-dateAdded').exec((err, posts) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ posts });
-  });
-};
+  Post.find()
+    .sort("-dateAdded")
+    .exec((err, posts) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.json({ posts });
+    });
+}
 
 export function editPost(req, res) {
   Post.update({ cuid: req.params.cuid }, req.body.post).exec((err, post) => {
@@ -90,7 +92,10 @@ export function deletePost(req, res) {
 }
 
 function thumbPost(req, res, count) {
-  Post.findOneAndUpdate({ cuid: req.params.cuid }, {$inc: { votes: count}}).exec((eer, post) => {
+  Post.findOneAndUpdate(
+    { cuid: req.params.cuid },
+    { $inc: { votes: count } }
+  ).exec((err, post) => {
     if (err) {
       res.status(500).sender(err);
     }
@@ -103,5 +108,5 @@ export function thumbUpPost(req, res) {
 }
 
 export function thumbDownPost(req, res) {
-  thumbPost(req, res -1);
+  thumbPost(req, res, -1);
 }
