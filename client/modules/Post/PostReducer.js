@@ -38,7 +38,7 @@ const PostReducer = (state = initialState, action) => {
       return {
         data: state.data.map(post => {
           return post.cuid === action.cuid
-            ? Object.assign({}, post, { votes: post.votes + 1 })
+            ? Object.assign({}, post, { votes: post.votes +1 })
             : post;
         })
       };
@@ -46,7 +46,7 @@ const PostReducer = (state = initialState, action) => {
       return {
         data: state.data.map(post => {
           return post.cuid === action.cuid
-            ? Object.assign({}, post, { votes: post.votes - 1 })
+            ? Object.assign({}, post, { votes: post.votes -1 })
             : post;
         })
       };
