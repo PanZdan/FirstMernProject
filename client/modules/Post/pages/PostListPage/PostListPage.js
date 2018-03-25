@@ -36,12 +36,12 @@ class PostListPage extends Component {
 		this.props.dispatch(addPostRequest({ name, title, content }));
 	};
 
-	handleThumbUpPost = post => {
-		this.props.dispatch(thumbUpPostRequest(post));
+	handleThumbUpPost = cuid => {
+		this.props.dispatch(thumbUpPostRequest(cuid));
 	};
 
-	handleThumbDownPost = post => {
-		this.props.dispatch(thumbDownPostRequest(post));
+	handleThumbDownPost = cuid => {
+		this.props.dispatch(thumbDownPostRequest(cuid));
 	};
 
 	render() {
