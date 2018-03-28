@@ -19,6 +19,7 @@ export function Header(props, context) {
 
 	return (
 		<div className={styles.header}>
+      <Navigation />
 			<div className={styles["language-switcher"]}>
 				<ul>
 					<li>
@@ -26,7 +27,6 @@ export function Header(props, context) {
 					</li>
 					{languageNodes}
 				</ul>
-				<Navigation />
 			</div>
 
 			<div className={styles.content}>

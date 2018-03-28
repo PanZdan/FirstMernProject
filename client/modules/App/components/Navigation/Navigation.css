@@ -1,0 +1,21 @@
+.navigation li {
+	display: inline-block;
+	list-style: none;
+	color: red;
+	padding-left: 15px;
+	text-decoration: none;
+	float: left;
+	margin: 5px;
+	line-height: 50%;
+}
+.navigation a {
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+	background-color: #03A9F4;
+	padding: 8px 16px;
+	border-radius: 1000px;
+	width: 80px;
+	text-align: center;
+
+}
